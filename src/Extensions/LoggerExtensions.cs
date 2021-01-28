@@ -5,7 +5,7 @@ using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 
-namespace SharedUtils
+namespace SharedUtils.Extensions
 {
     [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class NetworkSendCurrentMessage
@@ -53,62 +53,61 @@ namespace SharedUtils
 
     public static class LoggerExtensions
     {
-        #region mod-logger
 
-        static string modPrefix = $"[{Constants.MOD_ID}] ";
+        #region mod logger
 
         public static void ModLog(this ILogger logger, EnumLogType logType, string message, params object[] args)
         {
-            logger.Log(logType, modPrefix + message, args);
+            logger.Log(logType, ConstantsCore.ModPrefix + message, args);
         }
         public static void ModBuild(this ILogger logger, string message, params object[] args)
         {
-            logger.Build(modPrefix + message, args);
+            logger.Build(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModChat(this ILogger logger, string message, params object[] args)
         {
-            logger.Chat(modPrefix + message, args);
+            logger.Chat(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModVerboseDebug(this ILogger logger, string message, params object[] args)
         {
-            logger.VerboseDebug(modPrefix + message, args);
+            logger.VerboseDebug(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModDebug(this ILogger logger, string message, params object[] args)
         {
-            logger.Debug(modPrefix + message, args);
+            logger.Debug(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModNotification(this ILogger logger, string message, params object[] args)
         {
-            logger.Notification(modPrefix + message, args);
+            logger.Notification(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModWarning(this ILogger logger, string message, params object[] args)
         {
-            logger.Warning(modPrefix + message, args);
+            logger.Warning(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModError(this ILogger logger, string message, params object[] args)
         {
-            logger.Error(modPrefix + message, args);
+            logger.Error(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModFatal(this ILogger logger, string message, params object[] args)
         {
-            logger.Fatal(modPrefix + message, args);
+            logger.Fatal(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModEvent(this ILogger logger, string message, params object[] args)
         {
-            logger.Event(modPrefix + message, args);
+            logger.Event(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModAudit(this ILogger logger, string message, params object[] args)
         {
-            logger.Audit(modPrefix + message, args);
+            logger.Audit(ConstantsCore.ModPrefix + message, args);
         }
         public static void ModStoryEvent(this ILogger logger, string message, params object[] args)
         {
-            logger.StoryEvent(modPrefix + message, args);
+            logger.StoryEvent(ConstantsCore.ModPrefix + message, args);
         }
 
         #endregion
 
-        #region sendmessage
+        #region send message
 
         public static void SendMessageAsClient(this IServerPlayer player, string msg, int chatGroup = -1)
         {

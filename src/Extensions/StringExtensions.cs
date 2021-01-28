@@ -1,6 +1,6 @@
 using System;
 
-namespace SharedUtils
+namespace SharedUtils.Extensions
 {
     public static class StringExtensions
     {
